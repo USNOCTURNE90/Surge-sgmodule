@@ -74,18 +74,28 @@ function generatePanelContent(trafficInfo) {
     
     let content = [];
     
-    // 添加流量信息
+    // 计算已用流量和百分比
     const used = trafficInfo.upload + trafficInfo.download;
+    const usedGB = (used / (1024 * 1024 * 1024)).toFixed(2);
+    const percentage = ((used / trafficInfo.total) * 100).toFixed(1);
+    
+    // 计算剩余流量
     const remaining = trafficInfo.total - used;
+    const remainingGB = (remaining / (1024 * 1024 * 1024)).toFixed(2);
     
-    content.push(`上传：${formatBytes(trafficInfo.upload)}`);
-    content.push(`下载：${formatBytes(trafficInfo.download)}`);
-    content.push(`剩余：${formatBytes(remaining)}`);
-    
-    // 添加重置信息
-    if (config.reset_day) {
-        content.push(`重置：每月${config.reset_day}号`);
+    // 计算下一个重置日期
+    const now = new Date();
+    const resetDay = parseInt(config.reset_day) || 1;
+    let nextReset = new Date(now.getFullYear(), now.getMonth(), resetDay);
+    if (now.getDate() >= resetDay) {
+        nextReset.setMonth(nextReset.getMonth() + 1);
     }
+    const daysUntilReset = Math.ceil((nextReset - now) / (1000 * 60 * 60 * 24));
+    
+    // 添加显示内容
+    content.push(`已用：${usedGB}GB (${percentage}%)`);
+    content.push(`剩余：${remainingGB}GB`);
+    content.push(`下个周期：${daysUntilReset}天后`);
     
     // 添加到期信息
     if (trafficInfo.expire) {
@@ -96,18 +106,5 @@ function generatePanelContent(trafficInfo) {
     return content.join('\n');
 }
 
-/**
- * 格式化字节数
- * @param {number} bytes - 字节数
- * @returns {string} 格式化后的字符串
- */
-function formatBytes(bytes) {
-    if (bytes === 0) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-}
-
 // 执行主函数
-main(); 
+main();
