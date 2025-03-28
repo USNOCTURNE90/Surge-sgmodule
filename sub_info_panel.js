@@ -20,11 +20,12 @@
   let usedGB = bytesToSizeGB(used);
   let remainingBytes = total - used;
   let remainingGB = bytesToSizeGB(remainingBytes);
-  let content = [`已用：${usedGB}GB (${toPercent(used, total)}) | 剩余：${remainingGB}GB`];
+  let content = [`已用：${usedGB}GB | 剩余：${remainingGB}GB`];
 
   // 添加下个周期剩余天数和总套餐到期日
   if (resetDayLeft) {
-    content.push(`下个周期：${resetDayLeft}天`);
+    let resetHoursLeft = getRemainingHours();
+    content.push(`下个周期：${resetDayLeft}天${resetHoursLeft}小时`);
   }
   
   if (expire) {
@@ -110,6 +111,16 @@ function getRmainingDays(resetDay) {
   }
 
   return daysInMonth - today + resetDay;
+}
+
+/**
+ * 获取剩余小时数
+ * @returns {number} - 当天剩余的小时数
+ */
+function getRemainingHours() {
+  let now = new Date();
+  let hours = 23 - now.getHours();
+  return hours;
 }
 
 function bytesToSize(bytes) {
