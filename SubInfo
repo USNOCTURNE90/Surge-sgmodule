@@ -11,7 +11,7 @@ Sub_info1 = script-name=Sub_info1,update-interval=3600
 #Sub_info2 = script-name=Sub_info3,update-interval=3600
 
 [Script]
-Sub_info1 = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/USNOCTURNE90/Surge-sgmodule/refs/heads/main/sub_info_panel.js,script-update-interval=0,argument=url=https%3A%2F%2Fkktxjq.lol%2F%3FL2Rvd25sb2FkQ29uZmlnL1N1cmdlQ29uZmlnLmFzcHg%2FdXJrPWU4YWE0ODhlLWM4MzYtNDIzZS04Y2E5LTFmMmMwYjMzNTViMSZtbT0yNzE5OTkmZTVlNTA%3D&reset_day=26&expire=2025-08-30&title=ZWJ&icon=externaldrive.fill.badge.icloud=#007aff
+Sub_info1 = type=generic,timeout=10,script-path=Sub-info.js,script-update-interval=0,argument=url=https%3A%2F%2Fkktxjq.lol%2F%3FL2Rvd25sb2FkQ29uZmlnL1N1cmdlQ29uZmlnLmFzcHg%2FdXJrPWU4YWE0ODhlLWM4MzYtNDIzZS04Y2E5LTFmMmMwYjMzNTViMSZtbT0yNzE5OTkmZTVlNTA%3D&reset_day=31&title=ZWJ&icon=externaldrive.fill.badge.icloud&color=#007aff
 
 
 #Sub_info2 = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/USNOCTURNE90/Surge-sgmodule/refs/heads/main/sub_info_panel.js,script-update-interval=0,argument=url=https%3A%2F%2Fvcrfiw.lol%2F%3FL2Rvd25sb2FkQ29uZmlnL1N1cmdlQ29uZmlnLmFzcHg%2FdXJrPWZiZjFlYTExLWZkMWQtNDU1OS05ZTMxLTJmZDI0MmEyMGQ4ZSZtbT0yOTgxMjkmOWRlMmU2NjZkMmJhNGExYzljMjNiMw%3D%3D&reset_day=20&expire=2024-08-20&title=CDM&icon=externaldrive.fill.badge.icloud=#007aff
