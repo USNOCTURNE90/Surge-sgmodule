@@ -1,4 +1,5 @@
 #!name=广告屏蔽
+#!desc=微信小程序屏蔽广告合集
 [Rule]
 # 广告过滤
 DOMAIN-SUFFIX,wxs.qq.com,REJECT
